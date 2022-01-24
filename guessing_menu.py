@@ -6,6 +6,10 @@ import random
 
 os.system('clear')
 
+print("#############################")
+
+print("#   Guess a number Menu     #")
+
 def menu():
     print("[1] Choices 1-10")
     print("[2] Choices 1-50")
