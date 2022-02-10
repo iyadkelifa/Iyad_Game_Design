@@ -1,0 +1,101 @@
+import random, os
+os.system('clear')
+#variables and different words
+animals=["tiger", "elephant", "turtle", "chicken", "mouse", "monkey"] #listsm
+fruits=["bananas", "strawberries", "apples","peaches", "oranges", "pears" ]
+vegetables=["carrots", "beets", "lettuce","onions", "cilantro","olives"]
+
+
+def updateWord(word, guesses, letCount):
+    for letter in word:
+        if letter in guesses:
+            print(letter,end=" ")
+            letCount+=1
+        else:
+            print('_', end=' ')
+    return letCount
+
+#game menu
+def Menu():
+    print("########################################")
+    print("#                MENU                  #")
+    print("#             1. Animals               #")
+    print("#             2. Vegetables            #")
+    print("#             3. Fruits                 #")
+    print("########################################")
+    print()
+
+    while 1:
+        sel=input("What would you like to do?")
+        try:
+            sel = int(sel)
+            if sel < 3 and sel > 0:
+                break
+            else:
+                print("Please enter a number from 1 - 3")
+        except ValueError:
+            print("this is not an integer")   # excepting classes (ints)
+    return sel
+   
+def selWord(sel):
+                   # function to detirmine the outcome of what the user chooses
+    if sel == 1:  
+        word= random.choice(animals)
+    elif sel == 2:
+        word= random.choice(vegetables)
+    elif sel == 3:
+        word= random.choice(fruits)
+    return word
+
+
+name= input("What is your name? ")
+maxScore=0 #to store highest Score
+sel = Menu() #calling the menu function
+print(sel)
+
+gameOn = True
+   
+while gameOn:  
+    word= selWord(sel)
+    word = word.lower()
+    wordCount=len(word)
+    turns= wordCount+2  
+    letCount=0 #
+    print(word) 
+    guesses=''
+    score=0
+    letCount=updateWord(word, guesses, letCount)
+
+    while turns > 0 and letCount<wordCount:
+        print()
+        newguess=input (name + " Give me a letter ")
+        newguess= newguess.lower()
+
+        if newguess in word:
+            guesses += newguess
+            print("you guessed one letter ")
+
+        else:
+            turns -=1
+            print("Sorry, you have ", turns, "turns left")
+        letCount=0
+        letCount= updateWord(word, guesses, letCount) # calling a function
+               
+    if turns > 0 :
+        print(" ")
+        print("you win!!")
+        score += 1
+        print(score)
+
+    else:
+        print("you lose...try again") # using a conditional statement for an uncertain outcome
+        score = score
+        score=3*wordCount+5*turns
+
+    if score > maxScore: # determining whether a score is the new high score
+        maxScore=score
+        print(maxScore)
+        sel=Menu()
+
+
+
