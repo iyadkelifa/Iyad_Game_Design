@@ -17,6 +17,7 @@ p.display.set_caption('Final Project Game')
 
 #game variables
 tile_size = 50
+game_over = 0
 
 #load neccesary images
 sun_pic = p.image.load('images/sun1.png')
