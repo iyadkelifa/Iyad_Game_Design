@@ -13,8 +13,8 @@ pygame.init()
 clock = pygame.time.Clock()
 fps = 60
 
-screen_width = 1000
-screen_height = 1000
+screen_width = 750
+screen_height = 750
 
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Platformer')
@@ -24,10 +24,10 @@ font = pygame.font.SysFont('Bauhaus 93', 70)
 font_score = pygame.font.SysFont('Bahaus 93', 30)
 
 #define game variables
-tile_size = 50
+tile_size = screen_height/20
 game_over = 0  
 main_menu = True
-level = 1
+level = 4
 max_levels = 5 
 score = 0
 

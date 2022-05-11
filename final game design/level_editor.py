@@ -147,6 +147,14 @@ run = True
 while run:
 
 	clock.tick(fps)
+	
+	if level == 4:
+		bg_pic = pygame.image.load('images/hell.png')
+		bg_pic = pygame.transform.scale(bg_pic, (1000, 1000)) 
+		dirt_img = pygame.image.load('images/magma.png')
+		dirt_img = pygame.transform.scale(dirt_img, (21, 21)) 
+		grass_img = pygame.image.load('images/stone.png')
+		grass_img = pygame.transform.scale(grass_img, (21, 21))
 
 	#draw background
 	screen.fill(green)
